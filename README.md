@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Shoppio
+
+Practice e-commerce
+
+Author: Tomás Szwarcberg
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
