@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Oswald", sans-serif;
+    background-color: #EDEDED;
+}
+
+/* ----- NAVBAR ----- */
+
+/*
+    Palette:
+    black --> #171717
+    grey  --> #444444
+    red   --> #DA0037
+    white --> #EDEDED
+*/
+
+.navbar {
+    height: 11vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    background-color: #DA0037;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+}
+
+.navbar--icon {
+    font-size: 38px;
+    color: #EDEDED;
+    margin-left: 40px;
+}
+
+.navbar--title {
+    font-size: 38px;
+    font-weight: 700;
+    margin-left: 15px;
+    color: #EDEDED;
+    margin-right: auto;
+}
+
+.navbar--category {
+    color: #EDEDED;
+    font-size: 24px;
+    margin-top: 5px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.link-wrapper {
+    position: relative;
+    display: block;
+    padding: 20px 0;
+}
+
+.link {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    padding: 10px 0;
+    color: #EDEDED;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    font-family: "Oswald", sans-serif;
+}
+
+.inner-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.inner-wrapper:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #EDEDED;
+    transform: scaleY(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s;
+  }
+  .inner-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #EDEDED;
+    transform: scaleY(0);
+    transform-origin: top right;
+    transition: transform 0.3s;
+  }
+  .inner-wrapper .hover-effect {
+    padding: 10px;
+  }
+  .inner-wrapper .hover-effect:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #EDEDED;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s;
+  }
+  .inner-wrapper .hover-effect:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #EDEDED;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+  }
+  .inner-wrapper:hover:before,
+  .inner-wrapper:hover:after {
+    transform: scaleY(1);
+  }
+  .inner-wrapper:hover .hover-effect:before,
+  .inner-wrapper:hover .hover-effect:after {
+    transform: scaleX(1);
+  }
