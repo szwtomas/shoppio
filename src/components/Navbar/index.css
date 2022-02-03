@@ -70,10 +70,19 @@
 	background-color: #ffffff;
 	border: none;
 	display: none;
-	font-size: 24px;
+	font-size: 30px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
+	.navbar--categories > .navbar--category {
+		margin-top: 6px;
+		font-size: 20px;
+		margin-left: 6px;
+		margin-right: 6px;
+	}
+}
+
+@media screen and (max-width: 690px) {
 	.navbar {
 		padding-right: 0;
 		padding-left: 0;
@@ -84,8 +93,7 @@
 		margin-top: 5px;
 	}
 
-	.navbar--categories,
-	.navbar--search-login {
+	.navbar--categories {
 		display: none;
 	}
 }
