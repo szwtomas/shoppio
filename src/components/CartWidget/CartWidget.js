@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./cartWidget.css";
 
 const CartWidget = ({ itemCount = 0 }) => {
 	return (
