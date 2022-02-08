@@ -1,0 +1,15 @@
+.cart-widget {
+	font-size: 26px;
+	display: flex;
+	align-items: center;
+}
+
+.cart-icon {
+	margin-right: 10px;
+}
+
+@media screen and (max-width: 690px) {
+	.cart-widget {
+		display: none;
+	}
+}

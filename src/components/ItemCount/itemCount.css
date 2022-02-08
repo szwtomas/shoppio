@@ -1,0 +1,31 @@
+.amount-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.count-btn {
+	border: none;
+	background-color: transparent;
+	font-size: 36px;
+}
+
+.decrement {
+	margin-bottom: 5px;
+}
+
+.item-amount {
+	margin: auto 14px;
+	font-size: 32px;
+}
+
+.add-to-cart-btn {
+	border: 2px solid black;
+	text-align: center;
+	padding: 6px;
+	border-radius: 4px;
+	background-color: transparent;
+	font-size: 34px;
+	margin-top: 10px;
+}

@@ -1,0 +1,99 @@
+.navbar {
+	width: 100vw;
+	height: 11vh;
+	min-height: 70px;
+	background-color: --bg-primary;
+	padding: 10px 40px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.navbar--brand {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.navbar--title {
+	font-size: 38px;
+	margin-left: 10px;
+}
+
+.navbar--icon {
+	font-size: 38px;
+}
+
+.navbar--categories {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.navbar--categories > .navbar--category {
+	margin-top: 6px;
+	font-size: 24px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: --bg-primary;
+	border: none;
+	font-weight: 300;
+}
+
+.navbar--search-login {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.navbar--search-icon {
+	margin-top: 6px;
+	font-size: 22px;
+	margin-left: 5px;
+	margin-right: 8px;
+}
+
+.navbar--login-btn {
+	margin-top: 6px;
+	font-size: 22px;
+	margin-left: 7px;
+	margin-right: 5px;
+	border: none;
+	background-color: --bg-primary;
+}
+
+.navbar--bars {
+	padding: 10px;
+	background-color: --bg-primary;
+	border: none;
+	display: none;
+	font-size: 30px;
+}
+
+@media screen and (max-width: var(--sm-screen)) {
+	.navbar--categories > .navbar--category {
+		margin-top: 6px;
+		font-size: 20px;
+		margin-left: 6px;
+		margin-right: 6px;
+	}
+}
+
+@media screen and (max-width: var(--movile-screen)) {
+	.navbar {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	.navbar--bars {
+		display: block;
+		margin-top: 5px;
+	}
+
+	.navbar--categories {
+		display: none;
+	}
+}

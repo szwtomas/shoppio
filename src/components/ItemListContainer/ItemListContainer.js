@@ -1,4 +1,5 @@
 import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
 const ItemListContainer = ({ greeting = "Hello World" }) => {
 	const styles = {
@@ -9,6 +10,12 @@ const ItemListContainer = ({ greeting = "Hello World" }) => {
 	return (
 		<div className="item-list-container" style={styles}>
 			<h1>{greeting}</h1>
+
+			<ItemCount
+				initial={1}
+				stock={5}
+				onAdd={() => console.log("Add to cart")}
+			/>
 		</div>
 	);
 };
