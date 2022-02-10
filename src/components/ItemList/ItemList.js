@@ -1,19 +1,16 @@
 import React from "react";
 import "./itemList.css";
 import Item from "../Item";
+import { products } from "../../assets/products";
 
 const ItemList = () => {
-	return (
-		<div className="item-list">
-			<Item
-				title="IPhone X"
-				price={1500}
-				imgUrl={
-					"https://www.isolutionsperu.com/wp-content/uploads/iphone-x.jpg"
-				}
-			/>
-		</div>
-	);
+	const getItemElements = () => {
+		return products.map(p => (
+			<Item title={p.title} price={p.price} imgUrl={p.imgUrl} />
+		));
+	};
+
+	return <div className="item-list">{getItemElements()}</div>;
 };
 
 export default ItemList;

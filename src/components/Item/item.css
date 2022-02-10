@@ -2,20 +2,23 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-between;
 	border: 2px solid black;
 	border-radius: 6px;
 	width: 260px;
 	padding: 20px;
+	height: 450px;
 }
 
 .item--img {
+	margin-top: 15px;
 	width: 200px;
-	height: auto;
+	height: 200px;
 }
 
 .item--title {
 	font-weight: 400;
-	font-size: 38px;
+	font-size: 34px;
 }
 
 .item--price {
@@ -30,5 +33,5 @@
 	padding: 6px;
 	border-radius: 4px;
 	background: transparent;
-	margin-top: 10px;
+	margin-top: 0px;
 }

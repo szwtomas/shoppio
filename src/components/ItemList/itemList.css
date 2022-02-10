@@ -1,5 +1,10 @@
 .item-list {
 	width: 85vw;
-	max-width: 1400px;
-	margin: 20px auto;
+	max-width: 1150px;
+	margin: auto;
+	margin-top: 500px;
+	margin-top: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
