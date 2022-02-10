@@ -1,5 +1,7 @@
 import React from "react";
+import "./itemListContainer.css";
 import ItemCount from "../ItemCount";
+import ItemList from "../ItemList";
 
 const ItemListContainer = ({ greeting = "Hello World" }) => {
 	const styles = {
@@ -16,6 +18,8 @@ const ItemListContainer = ({ greeting = "Hello World" }) => {
 				stock={5}
 				onAdd={() => console.log("Add to cart")}
 			/>
+
+			<ItemList />
 		</div>
 	);
 };
