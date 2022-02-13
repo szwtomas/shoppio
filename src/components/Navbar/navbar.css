@@ -73,6 +73,13 @@
 	font-size: 30px;
 }
 
+.navbar--close-btn {
+	font-size: 30px;
+	border: none;
+	background-color: #ffffff;
+	padding: 10px;
+}
+
 @media screen and (max-width: 900px) {
 	.navbar--categories > .navbar--category {
 		margin-top: 6px;
@@ -86,14 +93,54 @@
 	.navbar {
 		padding-right: 0;
 		padding-left: 0;
+		position: relative;
+	}
+
+	.navbar--brand {
+		position: absolute;
+		top: 20%;
+		left: 5%;
+	}
+
+	.brand-open {
+		top: 5%;
 	}
 
 	.navbar--bars {
 		display: block;
 		margin-top: 5px;
+		position: absolute;
+		top: 14%;
+		left: 82%;
+	}
+
+	.navbar--close-btn {
+		display: block;
+		position: absolute;
+		top: 4%;
+		left: 85%;
+		color: gray;
 	}
 
 	.navbar--categories {
 		display: none;
+	}
+
+	.navbar--menu {
+		position: absolute;
+		left: 40%;
+		top: 25%;
+		list-style: none;
+	}
+
+	.navbar--menu li {
+		font-size: 34px;
+		font-weight: 300;
+		margin: 20px auto;
+	}
+
+	.navbar-bars {
+		height: 45vh;
+		min-height: 400px;
 	}
 }
