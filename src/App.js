@@ -8,7 +8,7 @@ const App = () => {
 	return (
 		<div className="app">
 			<Navbar />
-			<ItemListContainer greeting="Hello, world!" />
+			<ItemListContainer />
 		</div>
 	);
 };
