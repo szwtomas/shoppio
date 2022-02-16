@@ -49,6 +49,10 @@
 	margin-right: 30px;
 }
 
+.item-detail--title {
+	font-size: 32px;
+}
+
 @media screen and (max-width: 920px) {
 	.item-detail-container {
 		width: 100vw;
@@ -67,12 +71,11 @@
 		text-align: center;
 	}
 
-	.item-detail--description {
+	.item-detail--title {
 		text-align: center;
 	}
 
-	.item-detail--count {
-		margin-top: 15px;
-		margin-right: 0;
+	.item-detail--description {
+		text-align: center;
 	}
 }
