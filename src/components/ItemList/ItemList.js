@@ -12,18 +12,20 @@ const ItemList = () => {
 			.catch(() => console.log("Error fetching products"));
 	}, []);
 
-	const getItemElements = () => {
-		return products.map(p => (
-			<Item
-				title={p.title}
-				price={p.price}
-				imgUrl={p.imgUrl}
-				key={p.id}
-			/>
-		));
-	};
-
-	return <div className="item-list">{getItemElements()}</div>;
+	return (
+		<div className="item-list">
+			{products.map(p => (
+				<div className="item-list--item">
+					<Item
+						title={p.title}
+						price={p.price}
+						imgUrl={p.imgUrl}
+						key={p.id}
+					/>
+				</div>
+			))}
+		</div>
+	);
 };
 
 export default ItemList;

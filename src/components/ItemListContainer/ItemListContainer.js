@@ -3,13 +3,8 @@ import "./itemListContainer.css";
 import ItemList from "../ItemList";
 
 const ItemListContainer = () => {
-	const styles = {
-		fontSize: "42px",
-		textAlign: "center",
-	};
-
 	return (
-		<div className="item-list-container" style={styles}>
+		<div className="item-list-container">
 			<ItemList />
 		</div>
 	);
