@@ -82,6 +82,47 @@ const products = [
 		description:
 			"Adéntrate en el reino del streaming. Tu experiencia visual es la prioridad de la Tab P11, con una asombrosa resolución 2K en una pantalla IPS de 11”",
 	},
+	{
+		id: 8,
+		title: "LG G3 Beat",
+		imgUrl: "https://www.muycomputer.com/wp-content/uploads/2014/06/lg-g3-1-600x450.jpg",
+		price: 425,
+		type: "Cell Phone",
+		categoryId: 0,
+		color: "Black",
+		descriton: "Smartphone with 4G and Andriod v4.2.2",
+	},
+	{
+		id: 9,
+		title: "Samsung S21 Ultra",
+		imgUrl: "https://cnnespanol.cnn.com/wp-content/uploads/2021/02/Galaxy-S21-Ultra-caracteristicas.jpg?resize=940,530",
+		price: 1100,
+		type: "Cell Phone",
+		categoryId: 0,
+		color: "Black",
+		descriton:
+			"Samsung Galaxy S21 Ultra: el refinamiento casi perfecto del S20 Ultra",
+	},
+	{
+		id: 10,
+		title: "Ipad Pro 4",
+		imgUrl: "https://images.fravega.com/f300/b2850b9dd3e84a07885becc4da5fa840.jpg.webp",
+		price: 800,
+		type: "Tablet",
+		categoryId: 2,
+		color: "Black, White, Silver",
+		description: "IPad Pro 12.9'' 256Gb 4th Generation",
+	},
+	{
+		id: 11,
+		title: "Moto G20",
+		imgUrl: "https://images.fravega.com/f300/3f4179872125f6c70def8d079962744d.jpg.webp",
+		price: 500,
+		type: "Cell Phone",
+		categoryId: 0,
+		color: "Black, Cyan, White",
+		descriton: "Moto G20 128GB",
+	},
 ];
 
 const getProducts = () => {
