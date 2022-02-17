@@ -15,12 +15,13 @@ const ItemList = () => {
 	return (
 		<div className="item-list">
 			{products.map(p => (
-				<div className="item-list--item">
+				<div className="item-list--item" key={p.id}>
 					<Item
 						title={p.title}
 						price={p.price}
 						imgUrl={p.imgUrl}
 						key={p.id}
+						id={p.id}
 					/>
 				</div>
 			))}

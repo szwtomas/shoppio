@@ -1,15 +1,18 @@
 import React from "react";
 import "./item.css";
+import { Link } from "react-router-dom";
 
 const Item = props => {
-	const { title, price, imgUrl } = props;
+	const { title, price, imgUrl, id } = props;
 
 	return (
 		<div className="item">
 			<h4 className="item--title">{title}</h4>
 			<img className="item--img" alt={title} src={imgUrl} />
 			<span className="item--price">${price} U$D</span>
-			<button className="item--details-btn">View details</button>
+			<Link to={`/detail/${id}`}>
+				<button className="item--details-btn">View details</button>
+			</Link>
 		</div>
 	);
 };
