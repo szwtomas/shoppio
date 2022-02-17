@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CartWidget from "../CartWidget";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -36,15 +37,21 @@ const Navbar = () => {
 							: "navbar--brand brand-open"
 					}
 				>
-					<i className="fas fa-shopping-bag navbar--icon"></i>
-					<h2 className="navbar--title">Shoppio</h2>
+					<Link to="/" className="navbar--brand">
+						<i className="fas fa-shopping-bag navbar--icon"></i>
+						<h2 className="navbar--title">Shoppio</h2>
+					</Link>
 				</div>
-
 				<div className="navbar--categories">
-					<button className="navbar--category">Featured</button>
-					<button className="navbar--category">Notebooks</button>
-					<button className="navbar--category">Tablets</button>
-					<button className="navbar--category">Cell Phones</button>
+					<Link className="navbar--category" to="/category/0">
+						Cell Phones
+					</Link>
+					<Link className="navbar--category" to="/category/1">
+						Notebooks
+					</Link>
+					<Link className="navbar--category" to="/category/2">
+						Tablets
+					</Link>
 				</div>
 
 				<CartWidget className="navbar--cart" itemCount={0} />
@@ -65,10 +72,30 @@ const Navbar = () => {
 				{showBarsNavbar && (
 					<div className="navbar--menu-container">
 						<ul className="navbar--menu">
-							<li>Featured</li>
-							<li>Notebooks</li>
-							<li>Tablets</li>
-							<li>Cell Phones</li>
+							<li>
+								<Link
+									className="navbar--category"
+									to="category/1"
+								>
+									Notebooks
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="navbar--category"
+									to="category/0"
+								>
+									Cell Phones
+								</Link>
+							</li>
+							<li>
+								<Link
+									className="navbar--category"
+									to="category/2"
+								>
+									Tablets
+								</Link>
+							</li>
 						</ul>
 					</div>
 				)}

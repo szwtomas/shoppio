@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./itemList.css";
 import Item from "../Item";
-import { getProducts } from "../../assets/products";
+// import { getProducts } from "../../assets/products";
 
-const ItemList = () => {
-	const [products, setProducts] = useState([]);
-
-	useEffect(() => {
-		getProducts()
-			.then(products => setProducts(products))
-			.catch(() => console.log("Error fetching products"));
-	}, []);
+const ItemList = props => {
+	const { productList } = props;
 
 	return (
 		<div className="item-list">
-			{products.map(p => (
+			{productList.map(p => (
 				<div className="item-list--item" key={p.id}>
 					<Item
 						title={p.title}
