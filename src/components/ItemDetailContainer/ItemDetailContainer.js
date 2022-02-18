@@ -7,11 +7,13 @@ const ItemDetailContainer = () => {
 	const [product, setProduct] = useState(null);
 	const { productId } = useParams();
 
-	useEffect(() => {
-		getProductById(parseInt(productId))
+	const productRequest = id => {
+		getProductById(+id)
 			.then(product => setProduct([product]))
 			.catch(err => console.log(err));
-	}, [productId]);
+	};
+
+	useEffect(() => productRequest(productId), [productId]);
 
 	return (
 		<div className="item-detail--container">

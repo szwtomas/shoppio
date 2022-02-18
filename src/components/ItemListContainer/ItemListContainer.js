@@ -9,19 +9,21 @@ const ItemListContainer = () => {
 	const [products, setProducts] = useState([]);
 	const { categoryId } = useParams();
 
-	useEffect(() => {
-		if (categoryId === undefined) {
-			// List every product
+	const req = id => {
+		if (!id) {
+			// List all the products
 			getProducts()
 				.then(products => setProducts(products))
 				.catch(err => console.log(err));
-		} else {
-			// Only list products that math category id (filter)
-			getProductsByCategoryId(parseInt(categoryId))
-				.then(products => setProducts(products))
-				.catch(err => console.log(err));
+			return;
 		}
-	}, [categoryId]);
+		// List only products with matching category
+		getProductsByCategoryId(+id)
+			.then(products => setProducts(products))
+			.catch(err => console.error(err));
+	};
+
+	useEffect(() => req(categoryId), [categoryId]);
 
 	return (
 		<div className="item-list-container">

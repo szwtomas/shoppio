@@ -2,18 +2,7 @@ import React from "react";
 import "./itemDetail.css";
 import ItemCount from "../ItemCount";
 
-const ItemDetail = props => {
-	const {
-		item = {
-			title: "Product title",
-			imgUrl: "#",
-			price: 1000,
-			type: "Cell Phone",
-			color: "white",
-			description: "Item description",
-		},
-	} = props;
-
+const ItemDetail = ({ item }) => {
 	return (
 		<div className="item-detail-container">
 			<div className="item-details">

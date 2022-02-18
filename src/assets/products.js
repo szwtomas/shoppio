@@ -90,7 +90,7 @@ const products = [
 		type: "Cell Phone",
 		categoryId: 0,
 		color: "Black",
-		descriton: "Smartphone with 4G and Andriod v4.2.2",
+		description: "Smartphone with 4G and Andriod v4.2.2",
 	},
 	{
 		id: 9,
@@ -100,7 +100,7 @@ const products = [
 		type: "Cell Phone",
 		categoryId: 0,
 		color: "Black",
-		descriton:
+		description:
 			"Samsung Galaxy S21 Ultra: el refinamiento casi perfecto del S20 Ultra",
 	},
 	{
@@ -121,7 +121,7 @@ const products = [
 		type: "Cell Phone",
 		categoryId: 0,
 		color: "Black, Cyan, White",
-		descriton: "Moto G20 128GB",
+		description: "Moto G20 128GB",
 	},
 ];
 

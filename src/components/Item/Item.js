@@ -2,9 +2,7 @@ import React from "react";
 import "./item.css";
 import { Link } from "react-router-dom";
 
-const Item = props => {
-	const { title, price, imgUrl, id } = props;
-
+const Item = ({ title, price, imgUrl, id }) => {
 	return (
 		<div className="item">
 			<h4 className="item--title">{title}</h4>
