@@ -45,6 +45,30 @@
 	border: none;
 	font-weight: 300;
 	font-size: 32px;
+	transition: all 0.4s ease;
+}
+
+.navbar--category:hover {
+	transform: scale(1.1);
+}
+
+.navbar--category:after {
+	content: "";
+	position: absolute;
+	height: 2px;
+	background-color: black;
+	width: 0;
+	left: 50%;
+	bottom: 0;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	-webkit-transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  	transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+}
+
+.navbar--category:hover:after {
+	width: 100%;
 }
 
 .navbar--search-login {
