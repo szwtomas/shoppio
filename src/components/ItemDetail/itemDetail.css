@@ -47,10 +47,27 @@
 .item-detail--count {
 	margin-top: 25px;
 	margin-right: 30px;
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .item-detail--title {
 	font-size: 32px;
+}
+
+.cart-link {
+	color: black;
+	font-size: 38px;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px;
+	border: 2px solid gray;
+	border-radius: 4px;
+	margin-top: 25px;
 }
 
 @media screen and (max-width: 920px) {
@@ -77,5 +94,10 @@
 
 	.item-detail--description {
 		text-align: center;
+	}
+
+	.cart-link {
+		margin-left: 150px;
+		font-size: 36px;
 	}
 }

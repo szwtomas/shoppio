@@ -14,7 +14,7 @@ const ItemListContainer = () => {
 			// List all the products
 			getProducts()
 				.then(products => setProducts(products))
-				.catch(err => console.log(err));
+				.catch(err => console.error(err));
 			return;
 		}
 		// List only products with matching category

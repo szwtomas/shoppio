@@ -8,6 +8,7 @@
 	width: 260px;
 	padding: 20px;
 	height: 450px;
+	transition: all 0.5s ease;
 }
 
 .item--img {
@@ -34,4 +35,22 @@
 	border-radius: 4px;
 	background: transparent;
 	margin-top: 0px;
+	transition: all 0.5s ease;
+}
+
+.item--details-btn:hover {
+	transform: scale(1.1);
+}
+
+.item:hover {
+	animation: changeBackground 2s infinite;
+}
+
+@keyframes changeBackground {
+	from {
+		background-color: white;
+	}
+	to {
+		background-color: #cdd1cd;
+	}
 }

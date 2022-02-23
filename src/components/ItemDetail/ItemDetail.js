@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./itemDetail.css";
 import ItemCount from "../ItemCount";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
+	const [itemsInCart, setItemsInCart] = useState(0);
+
+	const handleAddToCart = count => {
+		setItemsInCart(count);
+	};
+
 	return (
 		<div className="item-detail-container">
 			<div className="item-details">
@@ -27,7 +34,13 @@ const ItemDetail = ({ item }) => {
 							{item.description}
 						</p>
 						<div className="item-detail--count">
-							<ItemCount />
+							{itemsInCart === 0 ? (
+								<ItemCount onAdd={handleAddToCart} />
+							) : (
+								<Link to="/cart" className="cart-link">
+									Go to Cart
+								</Link>
+							)}
 						</div>
 					</div>
 				</div>
