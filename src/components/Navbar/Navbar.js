@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CartWidget from "../CartWidget";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import CartContext from "../../context/CartContext";
 
 const Navbar = () => {
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 	const [showBarsNavbar, setShowBarsNavbar] = useState(false);
+
+	const { cartSize } = useContext(CartContext);
 
 	useEffect(() => {
 		const changeWidth = () => {
@@ -53,8 +56,9 @@ const Navbar = () => {
 						Tablets
 					</Link>
 				</div>
-
-				<CartWidget className="navbar--cart" itemCount={0} />
+				<Link to="/cart" className="navbar--cart-link">
+					<CartWidget className="navbar--cart" itemCount={cartSize} />
+				</Link>
 
 				{!showBarsNavbar && (
 					<button className="navbar--bars" onClick={toggleNavbar}>
