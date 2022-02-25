@@ -1,103 +1,82 @@
 .item-detail-container {
-	width: 900px;
-	border: 2px solid black;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 100px;
-	margin-bottom: 40px;
-	padding: 35px;
+	margin-top: 70px;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+
+.item-detail--img {
+	height: 450px;
+	width: auto;
+	max-width: 522px;
 }
 
 .item-details {
 	display: flex;
 	flex-direction: row;
-}
-
-.item-detail--img {
-	width: 450px;
-	height: auto;
+	border: 2px solid black;
+	padding: 20px;
+	height: 520px;
+	width: 90vw;
+	max-width: 920px;
+	justify-content: flex-start;
 }
 
 .item-detail--content {
+	margin-left: 20px;
 	display: flex;
 	flex-direction: column;
-	justify-content: left;
-	margin-top: 35px;
-	margin-left: 25px;
-}
-
-.item-detail--features {
-	margin-top: 18px;
-}
-
-.item-detail--features p {
-	color: gray;
-	font-size: 22px;
-	margin: 10px 0;
-	text-align: left;
-}
-
-.item-detail--description {
-	font-size: 26px;
-	color: black;
-	text-align: left;
-	margin-top: 22px;
-}
-
-.item-detail--count {
-	margin-top: 25px;
-	margin-right: 30px;
-	position: absolute;
-	width: 300px;
-	height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	padding-top: 25px;
 }
 
 .item-detail--title {
-	font-size: 32px;
+	font-size: 42px;
 }
 
-.cart-link {
+.item-detail--info {
+	margin-top: 12px;
+	font-size: 22px;
+	color: gray;
+}
+
+.item-detail--description {
 	color: black;
-	font-size: 38px;
-	text-decoration: none;
-	text-align: center;
-	padding: 5px;
-	border: 2px solid gray;
-	border-radius: 4px;
-	margin-top: 25px;
+	margin-top: 12px;
+	font-size: 26px;
+}
+
+.item-detail--count {
+	color: black;
+	position: relative;
+	top: 20%;
 }
 
 @media screen and (max-width: 920px) {
 	.item-detail-container {
-		width: 100vw;
-		border: none;
-		padding: 0;
-		justify-content: center;
-		align-items: center;
+		margin-top: 10px;
+	}
+
+	.item-detail--img {
+		max-width: 50vw;
+		width: 50vw;
+		height: auto;
 	}
 
 	.item-details {
 		flex-direction: column;
+		height: auto;
 		border: none;
+		justify-content: center;
+		align-items: center;
 	}
 
-	.item-detail--features p {
+	.item-detail--content {
 		text-align: center;
 	}
 
-	.item-detail--title {
-		text-align: center;
-	}
-
-	.item-detail--description {
-		text-align: center;
-	}
-
-	.cart-link {
-		margin-left: 150px;
-		font-size: 36px;
+	.item-detail--count {
+		position: static;
+		margin-top: 25px;
 	}
 }
