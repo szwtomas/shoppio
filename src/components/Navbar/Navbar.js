@@ -8,7 +8,11 @@ const Navbar = () => {
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 	const [showBarsNavbar, setShowBarsNavbar] = useState(false);
 
-	const { cartSize } = useContext(CartContext);
+	const { cart } = useContext(CartContext);
+
+	const cartTotalItems = cart
+		.map(p => p.quantity)
+		.reduce((p1, p2) => p1 + p2);
 
 	useEffect(() => {
 		const changeWidth = () => {
@@ -57,7 +61,10 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<Link to="/cart" className="navbar--cart-link">
-					<CartWidget className="navbar--cart" itemCount={cartSize} />
+					<CartWidget
+						className="navbar--cart"
+						itemCount={cartTotalItems}
+					/>
 				</Link>
 
 				{!showBarsNavbar && (
