@@ -49,13 +49,13 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div className="navbar--categories">
-					<Link className="navbar--category" to="/category/0">
+					<Link className="navbar--category" to="/category/phone">
 						Cell Phones
 					</Link>
-					<Link className="navbar--category" to="/category/1">
+					<Link className="navbar--category" to="/category/computer">
 						Notebooks
 					</Link>
-					<Link className="navbar--category" to="/category/2">
+					<Link className="navbar--category" to="/category/tablet">
 						Tablets
 					</Link>
 				</div>
