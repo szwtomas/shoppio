@@ -10,9 +10,10 @@ const Navbar = () => {
 
 	const { cart } = useContext(CartContext);
 
-	const cartTotalItems = cart
-		.map(p => p.quantity)
-		.reduce((p1, p2) => p1 + p2);
+	const cartTotalItems =
+		cart.length === 0
+			? 0
+			: cart.map(p => p.quantity).reduce((p1, p2) => p1 + p2);
 
 	useEffect(() => {
 		const changeWidth = () => {
@@ -39,9 +40,7 @@ const Navbar = () => {
 			<nav className={!showBarsNavbar ? "navbar" : "navbar navbar-bars"}>
 				<div
 					className={
-						!showBarsNavbar
-							? "navbar--brand"
-							: "navbar--brand brand-open"
+						!showBarsNavbar ? "navbar--brand" : "navbar--brand brand-open"
 					}
 				>
 					<Link to="/" className="navbar--brand">
@@ -61,10 +60,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<Link to="/cart" className="navbar--cart-link">
-					<CartWidget
-						className="navbar--cart"
-						itemCount={cartTotalItems}
-					/>
+					<CartWidget className="navbar--cart" itemCount={cartTotalItems} />
 				</Link>
 
 				{!showBarsNavbar && (
@@ -73,10 +69,7 @@ const Navbar = () => {
 					</button>
 				)}
 				{showBarsNavbar && (
-					<button
-						className="navbar--close-btn"
-						onClick={toggleNavbar}
-					>
+					<button className="navbar--close-btn" onClick={toggleNavbar}>
 						<i className="far fa-times"></i>
 					</button>
 				)}
@@ -84,26 +77,17 @@ const Navbar = () => {
 					<div className="navbar--menu-container">
 						<ul className="navbar--menu">
 							<li>
-								<Link
-									className="navbar--category"
-									to="category/1"
-								>
+								<Link className="navbar--category" to="category/1">
 									Notebooks
 								</Link>
 							</li>
 							<li>
-								<Link
-									className="navbar--category"
-									to="category/0"
-								>
+								<Link className="navbar--category" to="category/0">
 									Cell Phones
 								</Link>
 							</li>
 							<li>
-								<Link
-									className="navbar--category"
-									to="category/2"
-								>
+								<Link className="navbar--category" to="category/2">
 									Tablets
 								</Link>
 							</li>

@@ -2,6 +2,7 @@ import React, { useState, createContext } from "react";
 
 const CartContext = createContext();
 
+// Cart items are of the form { id, name, price, quantity }
 const CartContextProvider = ({ defaultValue = [], children }) => {
 	const [cart, setCart] = useState(defaultValue);
 

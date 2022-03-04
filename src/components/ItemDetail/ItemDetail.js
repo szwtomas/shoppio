@@ -17,6 +17,7 @@ const ItemDetail = ({ item }) => {
 			name: item.title,
 			price: item.price,
 			quantity: count,
+			imgUrl: item.imgUrl,
 		});
 	};
 
@@ -34,15 +35,11 @@ const ItemDetail = ({ item }) => {
 					<h4 className="item-detail--title">{item.title}</h4>
 					<div className="item-detail--info">
 						<div className="item-detail--features">
-							<p className="item-detail--price">
-								${item.price} USD
-							</p>
+							<p className="item-detail--price">${item.price} USD</p>
 							<p className="item-detail--type">{item.typr}</p>
 							<p className="item-detail--color">{item.color}</p>
 						</div>
-						<p className="item-detail--description">
-							{item.description}
-						</p>
+						<p className="item-detail--description">{item.description}</p>
 						<div className="item-detail--count">
 							{itemsInCart === 0 ? (
 								<ItemCount onAdd={handleAddToCart} />
