@@ -2,18 +2,30 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../assets/products";
 import ItemDetail from "../ItemDetail";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../service/firebase";
 
 const ItemDetailContainer = () => {
 	const [product, setProduct] = useState(null);
 	const { productId } = useParams();
 
-	const productRequest = id => {
-		getProductById(+id)
-			.then(product => setProduct([product]))
-			.catch(err => console.log(err));
-	};
+	useEffect(() => {
+		const docRef = doc(db, "Products", productId);
+		getDoc(docRef)
+			.then(res => {
+				const prod = { id: res.id, ...res.data() };
+				setProduct([prod]);
+			})
+			.catch(err => console.error(err));
+	}, [productId]);
 
-	useEffect(() => productRequest(productId), [productId]);
+	// const productRequest = id => {
+	// 	getProductById(+id)
+	// 		.then(product => setProduct([product]))
+	// 		.catch(err => console.log(err));
+	// };
+
+	// useEffect(() => productRequest(productId), [productId]);
 
 	return (
 		<div className="item-detail--container">
