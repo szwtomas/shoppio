@@ -3,7 +3,6 @@ import "./itemListContainer.css";
 import ItemList from "../ItemList";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProducts, getProductsByCategoryId } from "../../assets/products";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../service/firebase";
 
@@ -18,8 +17,6 @@ const ItemListContainer = () => {
 			category === undefined
 				? collection(db, "Products")
 				: query(collection(db, "Products"), where("category", "==", category));
-
-		console.log(productCollecctionRef);
 
 		getDocs(productCollecctionRef)
 			.then(querySnapshot => {

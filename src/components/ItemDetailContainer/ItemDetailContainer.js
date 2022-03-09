@@ -19,14 +19,6 @@ const ItemDetailContainer = () => {
 			.catch(err => console.error(err));
 	}, [productId]);
 
-	// const productRequest = id => {
-	// 	getProductById(+id)
-	// 		.then(product => setProduct([product]))
-	// 		.catch(err => console.log(err));
-	// };
-
-	// useEffect(() => productRequest(productId), [productId]);
-
 	return (
 		<div className="item-detail--container">
 			<div className="elements">

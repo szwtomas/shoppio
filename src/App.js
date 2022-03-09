@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "normalize.css";
 import "./index.css";
 import { CartContextProvider } from "./context/CartContext";
+import Checkout from "./components/Checkout/Checkout";
+import OrderCompleted from "./components/OrderCompleted";
 
 const App = () => {
 	return (
@@ -23,6 +25,8 @@ const App = () => {
 							element={<ItemDetailContainer />}
 						/>
 						<Route path="/cart" element={<Cart />} />
+						<Route path="/checkout" element={<Checkout />} />
+						<Route path="/ordercompleted" element={<OrderCompleted />} />
 					</Routes>
 				</Router>
 			</CartContextProvider>

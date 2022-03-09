@@ -29,6 +29,12 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
 
 	const clearCart = () => setCart([]);
 
+	const getTotal = () => {
+		return cart.length === 0
+			? 0
+			: cart.map(item => item.price * item.quantity).reduce((x, y) => x + y);
+	};
+
 	return (
 		<CartContext.Provider
 			value={{
@@ -38,6 +44,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
 				isInCart,
 				removeItem,
 				clearCart,
+				getTotal,
 			}}
 		>
 			{children}
