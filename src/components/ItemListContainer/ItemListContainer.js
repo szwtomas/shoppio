@@ -8,9 +8,12 @@ import { db } from "../../service/firebase";
 
 const ItemListContainer = () => {
 	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(false);
 	const { category } = useParams();
 
 	useEffect(() => {
+		setLoading(true);
+
 		// If category id isn't in params, fetch all products
 		// If exists, filter by category Id
 		const productCollecctionRef =
@@ -25,8 +28,17 @@ const ItemListContainer = () => {
 				});
 				setProducts(prods);
 			})
-			.catch(err => console.error(err));
+			.catch(err => console.error(err))
+			.finally(() => setLoading(false));
 	}, [category]);
+
+	if (loading) {
+		return (
+			<h2 style={{ fontSize: "42px", textAlign: "center", marginTop: "20px" }}>
+				Loading...
+			</h2>
+		);
+	}
 
 	return (
 		<div className="item-list-container">
