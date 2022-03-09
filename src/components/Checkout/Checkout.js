@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import "./checkout.css";
 import CartContext from "../../context/CartContext";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../service/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-	const { cart, getTotal } = useContext(CartContext);
+	const { cart, getTotal, clearCart } = useContext(CartContext);
 
 	const [nameInput, setNameInput] = useState("");
 	const [phoneInput, setPhoneInput] = useState("");
@@ -25,7 +25,15 @@ const Checkout = () => {
 		setAddressInput(evt.target.value);
 	};
 
-	const confirmOrder = () => {
+	const isValidInput = order => {
+		return (
+			order.buyer.name !== "" &&
+			order.buyer.phone !== "" &&
+			order.buyer.address !== ""
+		);
+	};
+
+	const getOrder = () => {
 		const order = {
 			buyer: {
 				name: nameInput,
@@ -43,20 +51,31 @@ const Checkout = () => {
 			total: getTotal(),
 			date: new Date(),
 		};
-
-		if (
-			order.buyer.name === "" ||
-			order.buyer.phone === "" ||
-			order.buyer.address === ""
-		) {
+		if (!isValidInput(order)) {
 			alert("All fields must be completed");
 			return;
 		}
+		return order;
+	};
 
-		addDoc(collection(db, "Orders"), order)
-			.then(() => null)
-			.catch(err => console.error(err))
-			.finally(() => navigate("/ordercompleted"));
+	const confirmOrder = async () => {
+		const order = getOrder();
+		if (!order) return;
+
+		try {
+			await addDoc(collection(db, "Orders"), order);
+			cart.forEach(async item => {
+				await updateDoc(doc(db, "Products", item.id), {
+					stock: item.stock - item.quantity,
+				});
+			});
+			clearCart();
+			navigate("/ordercompleted");
+		} catch (err) {
+			console.error(err);
+			alert(err);
+			return;
+		}
 	};
 
 	return (

@@ -16,6 +16,14 @@ const ItemCount = ({ stock = 10, initial = 1, onAdd }) => {
 		}
 	};
 
+	if (stock === 0) {
+		return (
+			<span style={{ fontSize: "28px", textAlign: "center", color: "red" }}>
+				Out of Stock!
+			</span>
+		);
+	}
+
 	return (
 		<div className="item-count">
 			<div className="amount-wrapper">

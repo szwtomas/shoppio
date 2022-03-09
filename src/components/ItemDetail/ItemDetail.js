@@ -18,6 +18,7 @@ const ItemDetail = ({ item }) => {
 			price: item.price,
 			quantity: count,
 			imgUrl: item.imgUrl,
+			stock: item.stock,
 		});
 	};
 
@@ -42,7 +43,7 @@ const ItemDetail = ({ item }) => {
 						<p className="item-detail--description">{item.description}</p>
 						<div className="item-detail--count">
 							{itemsInCart === 0 ? (
-								<ItemCount onAdd={handleAddToCart} />
+								<ItemCount onAdd={handleAddToCart} stock={item.stock} />
 							) : (
 								<Link to="/cart" className="cart-link">
 									Go to Cart
