@@ -3,8 +3,10 @@ import CartWidget from "../CartWidget";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
+import { getCategories } from "../../service/firestore";
 
 const Navbar = () => {
+	const [categories, setCategories] = useState([]);
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 	const [showBarsNavbar, setShowBarsNavbar] = useState(false);
 
@@ -23,6 +25,18 @@ const Navbar = () => {
 		window.addEventListener("resize", changeWidth);
 
 		return () => window.removeEventListener("resize", changeWidth);
+	}, []);
+
+	useEffect(() => {
+		const req = async () => {
+			try {
+				const categories = await getCategories();
+				setCategories(categories);
+			} catch (err) {
+				console.error(err);
+			}
+		};
+		req();
 	}, []);
 
 	const toggleNavbar = () => {
@@ -48,7 +62,7 @@ const Navbar = () => {
 						<h2 className="navbar--title">Shoppio</h2>
 					</Link>
 				</div>
-				<div className="navbar--categories">
+				{/* <div className="navbar--categories">
 					<Link className="navbar--category" to="/category/phone">
 						Cell Phones
 					</Link>
@@ -57,7 +71,20 @@ const Navbar = () => {
 					</Link>
 					<Link className="navbar--category" to="/category/tablet">
 						Tablets
-					</Link>
+					</Link> 
+				</div> */}
+				<div className="navbar--categories">
+					{categories.map(category => {
+						return (
+							<Link
+								className="navbar--category"
+								key={category.id}
+								to={`/category/${category.code}`}
+							>
+								{category.name}
+							</Link>
+						);
+					})}
 				</div>
 				<Link to="/cart" className="navbar--cart-link">
 					<CartWidget className="navbar--cart" itemCount={cartTotalItems} />

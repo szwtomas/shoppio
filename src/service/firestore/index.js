@@ -65,6 +65,8 @@ const getProductsByCategory = category => {
 	});
 };
 
+// Adds an order into the Firestore Database, of the form {buyer, items, total, timestamp}
+// In case of failure, rejects with an error
 const addOrder = order => {
 	return new Promise(async (resolve, reject) => {
 		try {
@@ -76,6 +78,8 @@ const addOrder = order => {
 	});
 };
 
+// Updates the product's stock to newStock.
+// In case of failure, rejects with an error
 const updateStock = (id, newStock) => {
 	return new Promise(async (resolve, reject) => {
 		try {
@@ -89,8 +93,30 @@ const updateStock = (id, newStock) => {
 	});
 };
 
+// Returns timestamp retrieved from Firebase server
 const getTimestamp = () => {
 	return Timestamp.fromDate(new Date());
+};
+
+// Returns a promise that resolves an array of categories
+// In case of failure, rejects with an error
+const getCategories = () => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			// const res = await getDocs(collection(db, "Categories"));
+			// const categories = res.map(category => {
+			// 	return { id: category.id, ...category.data() };
+			// });
+			const categoryCollecctionRef = collection(db, "Categories");
+			const querySnapshot = await getDocs(categoryCollecctionRef);
+			const categories = querySnapshot.docs.map(doc => {
+				return { id: doc.id, ...doc.data() };
+			});
+			resolve(categories);
+		} catch (err) {
+			reject(new Error(err));
+		}
+	});
 };
 
 export {
@@ -99,5 +125,6 @@ export {
 	getProductsByCategory,
 	addOrder,
 	updateStock,
+	getCategories,
 	getTimestamp,
 };
