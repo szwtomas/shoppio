@@ -3,8 +3,7 @@ import "./itemListContainer.css";
 import ItemList from "../ItemList";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getDocs, collection, query, where } from "firebase/firestore";
-import { db } from "../../service/firebase";
+import { getAllProducts, getProductsByCategory } from "../../service/firestore";
 
 const ItemListContainer = () => {
 	const [products, setProducts] = useState([]);
@@ -13,23 +12,22 @@ const ItemListContainer = () => {
 
 	useEffect(() => {
 		setLoading(true);
-
-		// If category id isn't in params, fetch all products
-		// If exists, filter by category Id
-		const productCollecctionRef =
-			category === undefined
-				? collection(db, "Products")
-				: query(collection(db, "Products"), where("category", "==", category));
-
-		getDocs(productCollecctionRef)
-			.then(querySnapshot => {
-				const prods = querySnapshot.docs.map(doc => {
-					return { id: doc.id, ...doc.data() };
-				});
-				setProducts(prods);
-			})
-			.catch(err => console.error(err))
-			.finally(() => setLoading(false));
+		const req = async categoryParam => {
+			try {
+				let prods;
+				if (categoryParam) {
+					prods = await getProductsByCategory(categoryParam);
+					setProducts(prods);
+				} else {
+					prods = await getAllProducts();
+					setProducts(prods);
+				}
+			} catch (err) {
+				console.error(err);
+			}
+		};
+		req(category);
+		setLoading(false);
 	}, [category]);
 
 	if (loading) {

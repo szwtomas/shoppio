@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail";
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../../service/firebase";
+import { getProductById } from "../../service/firestore";
 
 const ItemDetailContainer = () => {
 	const [loading, setLoading] = useState(false);
@@ -11,14 +10,16 @@ const ItemDetailContainer = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		const docRef = doc(db, "Products", productId);
-		getDoc(docRef)
-			.then(res => {
-				const prod = { id: res.id, ...res.data() };
+		const req = async id => {
+			try {
+				const prod = await getProductById(id);
 				setProduct([prod]);
-			})
-			.catch(err => console.error(err))
-			.finally(() => setLoading(false));
+			} catch (err) {
+				console.error("Firebase error:", err);
+			}
+		};
+		req(productId);
+		setLoading(false);
 	}, [productId]);
 
 	if (loading) {

@@ -2,8 +2,6 @@ import React, { useState, useContext } from "react";
 import CartContext from "../../context/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../service/firebase";
 import "./cart.css";
 
 const CartItem = ({ name, count, id, handleClick, url, price }) => {
