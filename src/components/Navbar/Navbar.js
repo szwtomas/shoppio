@@ -62,17 +62,6 @@ const Navbar = () => {
 						<h2 className="navbar--title">Shoppio</h2>
 					</Link>
 				</div>
-				{/* <div className="navbar--categories">
-					<Link className="navbar--category" to="/category/phone">
-						Cell Phones
-					</Link>
-					<Link className="navbar--category" to="/category/computer">
-						Notebooks
-					</Link>
-					<Link className="navbar--category" to="/category/tablet">
-						Tablets
-					</Link> 
-				</div> */}
 				<div className="navbar--categories">
 					{categories.map(category => {
 						return (

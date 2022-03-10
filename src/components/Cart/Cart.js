@@ -23,7 +23,6 @@ const CartItem = ({ name, count, id, handleClick, url, price }) => {
 	);
 };
 
-// { id, name, price, quantity }
 const Cart = () => {
 	const { cart, cartSize, removeItem, getTotal } = useContext(CartContext);
 	const [itemDeleted, setItemDeleted] = useState(false);
