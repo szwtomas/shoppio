@@ -4,73 +4,49 @@ Practice e-commerce
 
 Author: Tomás Szwarcberg
 
-## Getting Started with Create React App
+## About
+User is able to:
+- Search for items filtering by category 
+- Add products to cart, as much as the remaining stock for every specific item
+- Visualize how many items the cart has, and total price
+- Order the products, providing contact information.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Every order must update the available stock on ordered products.
+Orders are posted on Firestore a collection
+Products data such as name, remaining stock, price are fetched from Firebase.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Implementation
+This application uses ReactJS with create-react-app for the front-end, and Firebase as back-end service, particullary Firestore database.
 
-### `npm start`
+### Routing
+React Router v6 is the choice for routing. This routes render the following components:
+- **"/"** renders ItemListContainer, which shows all the products avaliable.
+- **"/category/:category"** also renders ItemListContainer, but now filtering by *category* parameter, displating only products whose categories match.
+- **"/detail/:productId"** renders ItemDetailContainer. This component is in charge of fetching information such as title, price, image, and so on for displaying   details of product with id matching the parameter *productId*
+- **"/cart"** renders Cart component, showing all the added products, amount and prices to the cart with its total price. It also links to checkout allowing user to proceed to checkout.
+- **"/checkout"** renders Checkout component, displaying the form where user provides contact information and confirms the order.
+- **"/ordercompleted"** renders OrderCompleted component, simply leting the user know that the order was posted succesfully and linking to *"/"* 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### State Managment
+State managment is implemented with react built-in Context. CartContext provides all the items added to the cart, as well as functions such as addToCart, clearCart, itemInCart, etc.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### API
+All backend interaction is implemented in *index.js* file in *service/firestore* directory, in order to keep all the firebase imports separeted from the ui.
+This module is the interface for using and fetching all firebase/firestore data. 
 
-### `npm test`
+### Miscellaneous
+FontAwesome V5 is the choice for icons, but using the CDN instead of installing react-icons dependency.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Setup
+To install dependiencies with npm, just execute `npm install` command in the root directory.
+In order for the Firebase connection to work, environment variables must be set in the .env files. The names of these variables can be found on *src/service/firestore/firebase.js*.
+Send an email to [tszwarcberg@fi.uba.ar] (tszwarcberg@fi.uba.ar) in order to get the actual values.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+You can contact me sending an eamil to [tszwarcberg@fi.uba.ar] (tszwarcberg@fi.uba.ar) to contribute.
