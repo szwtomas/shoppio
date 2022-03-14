@@ -7,7 +7,7 @@ import CartContext from "../../context/CartContext";
 const ItemDetail = ({ item }) => {
 	const [itemsInCart, setItemsInCart] = useState(0);
 
-	const { addItem } = useContext(CartContext);
+	const { cart, addItem } = useContext(CartContext);
 
 	const handleAddToCart = count => {
 		if (count === 0) return;
@@ -21,6 +21,13 @@ const ItemDetail = ({ item }) => {
 			stock: item.stock,
 		});
 	};
+
+	const itemInCart = cart.find(cartItem => cartItem.id === item.id);
+	console.log(itemInCart);
+	const remainingStock = itemInCart
+		? item.stock - itemInCart.quantity
+		: item.stock;
+	console.log(remainingStock);
 
 	return (
 		<div className="item-detail-container">
@@ -43,7 +50,7 @@ const ItemDetail = ({ item }) => {
 						<p className="item-detail--description">{item.description}</p>
 						<div className="item-detail--count">
 							{itemsInCart === 0 ? (
-								<ItemCount onAdd={handleAddToCart} stock={item.stock} />
+								<ItemCount onAdd={handleAddToCart} stock={remainingStock} />
 							) : (
 								<Link to="/cart" className="cart-link">
 									Go to Cart
