@@ -35,12 +35,12 @@ const Checkout = () => {
 		if (!order) return;
 
 		try {
-			await addOrder(order);
+			const orderId = await addOrder(order);
 			cart.forEach(async item => {
 				await updateStock(item.id, item.stock - item.quantity);
 			});
 			clearCart();
-			navigate("/ordercompleted");
+			navigate(`/${orderId}/ordercompleted`);
 		} catch (err) {
 			console.error(err);
 			alert(err);

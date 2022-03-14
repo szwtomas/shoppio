@@ -66,12 +66,13 @@ const getProductsByCategory = category => {
 };
 
 // Adds an order into the Firestore Database, of the form {buyer, items, total, timestamp}
+// On succes, resolves order ID
 // In case of failure, rejects with an error
 const addOrder = order => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const res = await addDoc(collection(db, "Orders"), order);
-			resolve(res);
+			resolve(res.id);
 		} catch (err) {
 			reject(new Error(err));
 		}

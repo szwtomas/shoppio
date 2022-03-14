@@ -23,11 +23,9 @@ const ItemDetail = ({ item }) => {
 	};
 
 	const itemInCart = cart.find(cartItem => cartItem.id === item.id);
-	console.log(itemInCart);
 	const remainingStock = itemInCart
 		? item.stock - itemInCart.quantity
 		: item.stock;
-	console.log(remainingStock);
 
 	return (
 		<div className="item-detail-container">

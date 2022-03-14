@@ -26,7 +26,10 @@ const App = () => {
 						/>
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/checkout" element={<Checkout />} />
-						<Route path="/ordercompleted" element={<OrderCompleted />} />
+						<Route
+							path="/:orderId/ordercompleted"
+							element={<OrderCompleted />}
+						/>
 					</Routes>
 				</Router>
 			</CartContextProvider>
