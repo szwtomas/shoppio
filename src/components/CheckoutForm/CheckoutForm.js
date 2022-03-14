@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./checkoutForm.css";
+import { isNumber } from "../../helpers/validation";
 
 const CheckoutForm = ({ handleSubmit }) => {
 	const [nameInput, setNameInput] = useState("");
@@ -11,6 +12,8 @@ const CheckoutForm = ({ handleSubmit }) => {
 	};
 
 	const handlePhoneChange = evt => {
+		const newInput = evt.target.value;
+		if (!isNumber(newInput) && newInput !== "") return;
 		setPhoneInput(evt.target.value);
 	};
 
