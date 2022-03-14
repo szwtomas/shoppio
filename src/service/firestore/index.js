@@ -46,6 +46,10 @@ const getProductById = productId => {
 // Return promise that resovles an array with all the product with matching category
 // In case of failure (e.g: The category doesn't exist), reject with an error message
 const getProductsByCategory = category => {
+	if (!category) {
+		return getAllProducts();
+	}
+
 	return new Promise(async (resolve, reject) => {
 		try {
 			const productCollecctionRef = query(
