@@ -63,6 +63,12 @@ Send an email to tszwarcberg@fi.uba.ar in order to get the actual values.
 
 ---
 
+## Run Application
+
+Once dependencies are installed, execute `npm start` to run a local server in `localhost:3000`
+
+---
+
 ## Contact
 
 You can contact me sending an eamil to tszwarcberg@fi.uba.ar to contribute.
