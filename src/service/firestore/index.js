@@ -108,10 +108,6 @@ const getTimestamp = () => {
 const getCategories = () => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			// const res = await getDocs(collection(db, "Categories"));
-			// const categories = res.map(category => {
-			// 	return { id: category.id, ...category.data() };
-			// });
 			const categoryCollecctionRef = collection(db, "Categories");
 			const querySnapshot = await getDocs(categoryCollecctionRef);
 			const categories = querySnapshot.docs.map(doc => {
